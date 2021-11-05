@@ -31,7 +31,7 @@ export class LoginComponent implements OnInit {
        if(user){
          alert("Ok");
          this.loginForm.reset();
-         this.router.navigate(['Home'])
+         this.router.navigate(['home'])
        }
        else{
          alert("No")
