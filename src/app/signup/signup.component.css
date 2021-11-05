@@ -1,5 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@1,300;1,400&display=swap');
 
 #container {
+    font-family: 'Open Sans', sans-serif;
     background: rgba(3, 3, 55, 0.5);
     width: 40vw;
     height: 80vh;
