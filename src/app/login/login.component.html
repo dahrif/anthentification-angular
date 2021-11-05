@@ -1,12 +1,12 @@
 <div id="container">
     <header>Connexion</header>
-    <form method="post">
+    <form [formGroup]="loginForm" (ngSubmit)="login()">
        <fieldset>
-          <br/><br/><br/>
-          <input type="text" name="username" id="username" placeholder="Full Name" required autofocus>
-          <br/><br/>
-          <input type="password" name="password" id="password" placeholder="Password" required>
-          <br/><br/>
+
+          <input formControlName="email" type="email" id="email" placeholder="Email" required>
+          
+          <input formControlName="password" type="password" id="password" placeholder="Password" required>
+          
           <label for="submit"></label>
           <input type="submit" name="submit" id="submit" value="REGISTER">
           <a routerLink="/signup">Vous n'avez pas de compte? Inscrivez-vous</a>

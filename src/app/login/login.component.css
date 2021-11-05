@@ -24,13 +24,14 @@ header {
 fieldset {
     border: 0;
     text-align: center;
+    padding-top: 30px;
 }
 
 input[type="submit"] {
     background: rgba(235, 30, 54, 1);
     border: 0;
     display: block;
-    margin: 0 auto;
+    margin: 20px auto;
     color: white;
     padding: 0.7rem;
     cursor: pointer;
@@ -44,6 +45,7 @@ input {
     padding: 10px;
     color: white;
     width: 70%;
+    margin: 30px;
 }
 
 input[type="text"]:focus,
