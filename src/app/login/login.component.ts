@@ -3,6 +3,7 @@ import {FormBuilder, FormGroup} from '@angular/forms';
 import {HttpClient} from '@angular/common/http';
 import { Router } from '@angular/router';
 
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -39,7 +40,7 @@ export class LoginComponent implements OnInit {
     },err=>{
       alert("Erreur")
     })
-
+    
   }
 
 }
