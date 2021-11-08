@@ -32,7 +32,7 @@ export class LoginComponent implements OnInit {
        });
 
        if(user){
-         alert("Connecté avec succès");
+         sessionStorage.setItem("username", user.username);
          this.loginForm.reset();
          this.router.navigate(['home'])
        }

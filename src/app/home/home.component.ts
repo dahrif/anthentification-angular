@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import {HttpClient} from '@angular/common/http'
 import { Router } from '@angular/router';
 
 @Component({
@@ -9,9 +8,19 @@ import { Router } from '@angular/router';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  username: any = "";
 
+  constructor(private router : Router) { }
+
+  
   ngOnInit() {
+    this.username = sessionStorage.getItem("username")
   }
+
+  logOut(){
+    sessionStorage.clear();
+    this.router.navigate(['login']);
+  }
+
 
 }
