@@ -23,6 +23,8 @@ export class LoginComponent implements OnInit {
   }
 
   login(){
+
+    
     this.http.get<any>("http://localhost:3000/signupUsers")
     .subscribe(res=>{
       const user= res.find((a:any)=>{
@@ -30,16 +32,18 @@ export class LoginComponent implements OnInit {
        });
 
        if(user){
-         alert("Ok");
+         alert("Connecté avec succès");
          this.loginForm.reset();
          this.router.navigate(['home'])
        }
        else{
-         alert("No")
+         alert("Les informations sont incorrectes")
        }
     },err=>{
       alert("Erreur")
     })
+
+    
     
   }
 
