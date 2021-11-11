@@ -3,6 +3,9 @@ import {FormGroup , FormBuilder, Validators} from '@angular/forms';
 import {HttpClient} from '@angular/common/http'
 import { Router } from '@angular/router';
 import { AuthService } from '../auth.service';
+import {Md5} from "md5-typescript";
+
+console.log(Md5.init('hello'));
 
 @Component({
   selector: 'app-signup',
@@ -10,12 +13,16 @@ import { AuthService } from '../auth.service';
   styleUrls: ['./signup.component.css']
 })
 
+
 export class SignupComponent implements OnInit {
 
-  public signupForm !: FormGroup;
+  
+
+  public signupForm : FormGroup;
   public submitted : false;
 
   constructor(private formBuilder : FormBuilder, private http: HttpClient, private router:Router, private authService: AuthService) { }
+
 
   ngOnInit() : void {
     this.signupForm = this.formBuilder.group ({
@@ -24,6 +31,8 @@ export class SignupComponent implements OnInit {
         password : ['', Validators.required]
     })
   }
+
+  get f() { return this.signupForm.controls; }
 
   signUp(){
     this.http.post<any>("http://localhost:3000/signupUsers",this.signupForm.value)
