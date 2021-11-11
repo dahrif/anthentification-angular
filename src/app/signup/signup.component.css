@@ -68,8 +68,7 @@ a{
 }
 
 /*Media queries */
-
-@media (max-width: 568px) {
+@media (maX-width: 800px) {
     #container {
         width: 80vw;
         margin-bottom: 10%;
