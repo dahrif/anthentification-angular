@@ -3,16 +3,16 @@
     <form [formGroup]="signupForm" (ngSubmit)="signUp()">
        <fieldset>
           <br/>
-          <input formControlName="username" type="text" name="username" id="username" placeholder="Full Name"><br/>
-          <span class="text-danger" *ngIf="signupForm.controls['username'].dirty && signupForm.hasError('required', 'username')">*username required</span>
+          <input formControlName="username" type="text" name="username" id="username" placeholder="Username"><br/>
+          <span class="text-danger" *ngIf="signupForm.controls['username'].touched && signupForm.hasError('required', 'username')">*username required</span>
          
 
           <br/><input formControlName="email" type="email" name="email" id="email" placeholder="Email"><br/>
-          <span class="text-danger" *ngIf="signupForm.controls['email'].dirty && signupForm.hasError('required', 'email')">*email required</span>
+          <span class="text-danger" *ngIf="signupForm.controls['email'].touched && signupForm.hasError('required', 'email')">*email required</span>
          
 
           <br/><input formControlName="password" type="password" name="password" id="password" placeholder="Password"><br/>
-          <span class="text-danger" *ngIf="signupForm.controls['password'].dirty && signupForm.hasError('required', 'password')">*password required</span><br/>
+          <span class="text-danger" *ngIf="signupForm.controls['password'].touched && signupForm.hasError('required', 'password')">*password required</span><br/>
           
 
           <label for="submit"></label>
