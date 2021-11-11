@@ -3,12 +3,15 @@
     <form [formGroup]="loginForm" (ngSubmit)="login()">
        <fieldset>
 
-          <input formControlName="email" type="email" id="email" placeholder="Email" required>
+          <input formControlName="email" type="email" id="email" placeholder="Email" ><br/>
+          <span class="text-danger" *ngIf="loginForm.controls['email'].dirty && loginForm.hasError('required', 'email')">*email required</span>
           
-          <input formControlName="password" type="password" id="password" placeholder="Password" required>
+          <input formControlName="password" type="password" id="password" placeholder="Password" ><br/>
+          <span class="text-danger" *ngIf="loginForm.controls['password'].dirty && loginForm.hasError('required', 'password')">*password required</span>
           
           <label for="submit"></label>
-          <input type="submit" name="submit" class="submit" value="Connexion">
+          <input type="submit" [disabled]="!loginForm.valid" name="submit" class="submit" value="Connexion">
+          
           <a routerLink="/signup">Vous n'avez pas de compte? Inscrivez-vous</a>
        </fieldset>
        
