@@ -1,0 +1,27 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "username": "json-server",
+      "email": "typicode",
+      "password": "typicode"
+    }
+  ],
+  "signupUsers": [
+    {
+      "username": "fatima",
+      "email": "fatima@gmail.com",
+      "password": "123456",
+      "id": 1
+    },
+    {
+      "username": "fatima",
+      "email": "dahri.fatima.dev@gmail.com",
+      "password": "123",
+      "id": 2
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}
