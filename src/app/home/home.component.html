@@ -1,6 +1,7 @@
 <div class="container text-center">
     <h1 class="text-white">Bienvenu {{username}}</h1>
-<button class="logout" (click)="logOut()">Déconnexion</button>
+    <button *ngIf="this.username" class="logout" (click)="logOut()">Déconnexion</button>
+    <a class="text-white" *ngIf="!this.username" routerLink="/login">Vous n'êtes pas connecté ? Connectez-vous</a>
 
 </div>
     
