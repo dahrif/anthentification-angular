@@ -3,8 +3,7 @@ import {FormGroup , FormBuilder, Validators} from '@angular/forms';
 import {HttpClient} from '@angular/common/http'
 import { Router } from '@angular/router';
 import { AuthService } from '../auth.service';
-import {Md5} from "md5-typescript";
-
+// import {Md5} from "md5-typescript";
 
 // console.log(Md5.init('hello'));
 
