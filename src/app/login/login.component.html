@@ -4,10 +4,10 @@
        <fieldset>
 
           <input formControlName="email" type="email" id="email" placeholder="Email" ><br/>
-          <span class="text-danger" *ngIf="loginForm.controls['email'].touched && loginForm.hasError('required', 'email')">*email required</span> <br/>
+          <span class="text-danger" *ngIf="loginForm.controls['email'].touched && loginForm.hasError('required', 'email')">*Veuillez entrer votre email</span> <br/>
           
-          <input formControlName="password" type="password" id="password" placeholder="Password" ><br/>
-          <span class="text-danger" *ngIf="loginForm.controls['password'].touched && loginForm.hasError('required', 'password')">*password required</span><br/>
+          <input formControlName="password" type="password" id="password" placeholder="Mot de passe" ><br/>
+          <span class="text-danger" *ngIf="loginForm.controls['password'].touched && loginForm.hasError('required', 'password')">**Veuillez entrer votre mot de passe</span><br/>
           
           <label for="submit"></label>
           <input type="submit" [disabled]="!loginForm.valid" name="submit" class="submit" value="Connexion">

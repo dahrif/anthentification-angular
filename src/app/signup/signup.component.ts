@@ -5,7 +5,8 @@ import { Router } from '@angular/router';
 import { AuthService } from '../auth.service';
 import {Md5} from "md5-typescript";
 
-console.log(Md5.init('hello'));
+
+// console.log(Md5.init('hello'));
 
 @Component({
   selector: 'app-signup',
@@ -21,11 +22,17 @@ export class SignupComponent implements OnInit {
   public signupForm : FormGroup;
   public submitted : false;
 
-  constructor(private formBuilder : FormBuilder, private http: HttpClient, private router:Router, private authService: AuthService) { }
+  constructor(private formBuilder : FormBuilder, private http: HttpClient, private router:Router, private authService: AuthService) {
+    
+   }
+
+  ngOnInit() : void { 
+
+    
 
 
-  ngOnInit() : void {
     this.signupForm = this.formBuilder.group ({
+     
         username : ['', Validators.required],
         email : ['', Validators.required],
         password : ['', Validators.required]
