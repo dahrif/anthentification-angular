@@ -15,10 +15,22 @@
       "id": 1
     },
     {
-      "username": "fatima",
-      "email": "dahri.fatima.dev@gmail.com",
-      "password": "123",
+      "username": "asmae",
+      "email": "asmae@gmail.com",
+      "password": "123456",
       "id": 2
+    },
+    {
+      "username": "test",
+      "email": "test@gmail.com",
+      "password": "123456",
+      "id": 3
+    },
+    {
+      "username": "test1",
+      "email": "test1@gmail.com",
+      "password": "123456",
+      "id": 4
     }
   ],
   "profile": {

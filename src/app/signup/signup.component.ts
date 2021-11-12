@@ -21,7 +21,7 @@ export class SignupComponent implements OnInit {
   public signupForm : FormGroup;
   public submitted : false;
 
-  constructor(private formBuilder : FormBuilder, private http: HttpClient, private router:Router, private authService: AuthService) {
+  constructor(private formBuilder : FormBuilder, private http: HttpClient, private router:Router) {
     
    }
 
