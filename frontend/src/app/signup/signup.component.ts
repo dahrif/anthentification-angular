@@ -41,7 +41,7 @@ export class SignupComponent implements OnInit {
   get f() { return this.signupForm.controls; }
 
   signUp(){
-    this.http.post<any>("http://localhost:3000/signupUsers",this.signupForm.value)
+    this.http.post<any>("http://localhost:3000/register",this.signupForm.value)
     .subscribe(res=>{
       alert("Votre compte a été crée avec succès");
       this.signupForm.reset();
