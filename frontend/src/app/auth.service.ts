@@ -1,13 +1,16 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
-export const AUTH_TOKEN_KEY = 'auth-token';
+@Injectable()
 
-@Injectable({
-  providedIn: 'root'
-})
 export class AuthService {
 
-  login(authData:string){
-    sessionStorage.setItem(AUTH_TOKEN_KEY , authData)
+  private _signupUrl = "http://localhost:3000/api/signup"
+
+  constructor(private http: HttpClient){}
+
+  signUp(user){
+   return this.http.post<any>(this._signupUrl, user)
   }
+
 }

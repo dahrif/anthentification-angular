@@ -10,6 +10,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { HomeComponent } from './home/home.component';
 import { AdminComponent } from './admin/admin.component';
 import { NormalComponent } from './normal/normal.component';
+import { AuthService } from './auth.service';
 
 
 @NgModule({
@@ -30,7 +31,7 @@ import { NormalComponent } from './normal/normal.component';
 
 
   ],
-  providers: [],
+  providers: [AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
