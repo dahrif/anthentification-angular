@@ -53,8 +53,8 @@ router.post('/login', (req, res) =>{
     })
 })
 
-router.get('/normal', (req, res) =>{
-    let normal = [
+router.get('/home', (req, res) =>{
+    let home = [
         {
             "_id": "1",
             "email": "timadd@gmail.com",
@@ -76,7 +76,7 @@ router.get('/normal', (req, res) =>{
             "password": "12356",
         }
     ]
-    res.json(normal)
+    res.json(home)
 })
 
 router.get('/admin', (req, res) =>{

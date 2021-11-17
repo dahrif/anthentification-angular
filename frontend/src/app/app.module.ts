@@ -9,8 +9,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { HomeComponent } from './home/home.component';
 import { AdminComponent } from './admin/admin.component';
-import { NormalComponent } from './normal/normal.component';
+import { UtilisateurComponent } from './utilisateur/utilisateur.component';
 import { AuthService } from './auth.service';
+import { EventService } from './event.service';
 
 
 @NgModule({
@@ -20,7 +21,7 @@ import { AuthService } from './auth.service';
     SignupComponent,
     HomeComponent,
     AdminComponent,
-    NormalComponent
+    UtilisateurComponent
   ],
   imports: [
     BrowserModule,
@@ -31,7 +32,7 @@ import { AuthService } from './auth.service';
 
 
   ],
-  providers: [AuthService],
+  providers: [AuthService, EventService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

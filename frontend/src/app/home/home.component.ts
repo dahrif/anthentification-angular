@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { EventService } from '../event.service';
 
 @Component({
   selector: 'app-home',
@@ -8,18 +9,21 @@ import { Router } from '@angular/router';
 })
 export class HomeComponent implements OnInit {
 
-  username: any = "";
+  home = [];
 
-  constructor(private router : Router) { }
+  constructor(private _eventServices : EventService) { }
 
   
   ngOnInit() {
-    this.username = sessionStorage.getItem("username")
+    this._eventServices.getHome()
+    .subscribe(
+      res => this.home = res,
+      err => console.log(err)
+    )
   }
 
   logOut(){
-    sessionStorage.clear();
-    this.router.navigate(['login']);
+  
   }
 
 

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { EventService } from '../event.service';
 
 @Component({
   selector: 'app-admin',
@@ -7,9 +9,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdminComponent implements OnInit {
 
-  constructor() { }
+  admin = []
+  
+  constructor(private _eventServices : EventService) { }
 
   ngOnInit() {
+
+    this._eventServices.getAdmin()
+    .subscribe(
+      res => this.admin = res,
+      err => console.log(err)
+    )
   }
 
 }
