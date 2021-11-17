@@ -2,6 +2,7 @@ import {HttpClient} from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import { Router } from '@angular/router';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-login',
@@ -10,39 +11,19 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 
-  public loginForm !: FormGroup
+  loginUserData = {}
 
-  constructor(private formBuilder : FormBuilder, private http : HttpClient, private router : Router) { }
+  constructor(private _auth: AuthService) { }
 
   ngOnInit() : void {
-    this.loginForm = this.formBuilder.group({
-      email:['', Validators.required],
-      password:['', Validators.required]
-    })
+    
   }
 
   login(){
-
-    this.http.get<any>("http://localhost:3000/signupUsers")
-    .subscribe(res=>{
-      const user= res.find((a:any)=>{
-        return a.email === this.loginForm.value.email && a.password === this.loginForm.value.password
-       });
-
-       if(user){
-         sessionStorage.setItem("username", user.username);
-         this.loginForm.reset();
-         this.router.navigate(['home'])
-       }
-       else{
-         alert("Les informations sont incorrectes")
-       }
-    },err=>{
-      alert("Erreur")
-    })
-
-    
-    
+    this._auth.login(this.loginUserData)
+    .subscribe(
+      res => console.log(res),
+      err => console.log(err)
+    )
   }
-
 }
