@@ -13,7 +13,7 @@ export class LoginComponent implements OnInit {
 
   loginUserData = {}
 
-  constructor(private _auth: AuthService) { }
+  constructor(private _auth: AuthService, private _router : Router) { }
 
   ngOnInit() : void {
     
@@ -22,7 +22,11 @@ export class LoginComponent implements OnInit {
   login(){
     this._auth.login(this.loginUserData)
     .subscribe(
-      res => console.log(res),
+      res =>
+       {console.log(res)
+        localStorage.setItem('token', res.token)
+        this._router.navigate(['/admin'])
+      },
       err => console.log(err)
     )
   }

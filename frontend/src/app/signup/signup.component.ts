@@ -16,7 +16,7 @@ export class SignupComponent implements OnInit {
 
   signupUserData = {}
 
-  constructor(private _auth: AuthService) {}
+  constructor(private _auth: AuthService, private _router : Router) {}
 
   ngOnInit(){ 
   }
@@ -25,7 +25,11 @@ export class SignupComponent implements OnInit {
   signUp() {
     this._auth.signUp(this.signupUserData)
     .subscribe(
-      res => console.log(res),
+      res =>
+       {console.log(res)
+        localStorage.setItem('token', res.token)
+        this._router.navigate(['/admin'])
+      },
       err => console.log(err)
     )
 
