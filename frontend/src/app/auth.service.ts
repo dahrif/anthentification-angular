@@ -25,4 +25,8 @@ private _loginUrl = "http://localhost:3000/api/login";
      return !!localStorage.getItem('token')
    }
 
+   getToken(){
+     return localStorage.getItem('token')
+   }
+
 }

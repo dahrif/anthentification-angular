@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpErrorResponse } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { EventService } from '../event.service';
 
@@ -10,9 +11,8 @@ import { EventService } from '../event.service';
 export class AdminComponent implements OnInit {
 
   admin = [];
-  username: any = "";
   
-  constructor(private _eventServices : EventService) { }
+  constructor(private _eventServices : EventService, private _router : Router) { }
 
   ngOnInit() {
 
@@ -20,11 +20,13 @@ export class AdminComponent implements OnInit {
     .subscribe(
       res => this.admin = res,
       err => console.log(err)
+      //  {
+      //   if(err instanceof HttpErrorResponse){
+      //     if (err.status === 401){
+      //       this._router.navigate(['/login'])
+      //     }
+      //   }
+      // }
     )
   }
-
-  session(){
-    this.username = sessionStorage.getItem("username")
-  }
-
 }

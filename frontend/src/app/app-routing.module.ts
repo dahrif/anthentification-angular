@@ -10,7 +10,9 @@ const routes: Routes = [
   {path:"", redirectTo: "login" , pathMatch: "full"},
   {path:"login", component:LoginComponent},
   {path:"signup", component:SignupComponent},
-  {path:"admin", component:AdminComponent, canActivate: [AuthGuard]},
+  {path:"admin", component:AdminComponent
+  ,  canActivate: [AuthGuard]
+},
   
   {path:"home", component:HomeComponent}
 ];

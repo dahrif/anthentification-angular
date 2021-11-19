@@ -16,6 +16,23 @@ mongoose.connect(db, err =>{
     
 })
 
+function verifyToken(req, res, next){
+    if(!req.headers.authorization){
+        return res.status(401).send('Non autorisé')
+    }
+    let token = req.headers.authorization.split(' ')[1]
+    if (token === 'null'){
+        return res.status(401).send('Non autorisé')
+    }
+    let payload = jwt.verify(token, 'secretKey')
+    if(!payload){
+        return res.status(401).send('Non autorisé')
+    }
+
+    req.userId = payload.subject
+    next()
+}
+
 router.get('/', (req, res) =>{
     res.send('From API route')
 })
@@ -28,8 +45,8 @@ router.post('/signup', (req, res) =>{
             console.log(error)
         }
         else{
-            let playload = { subject: signedupUser._id}
-            let token = jwt.sign(playload, 'secretKey')
+            let payload = { subject: signedupUser._id}
+            let token = jwt.sign(payload, 'secretKey')
             res.status(200).send({token})
         }
     })
@@ -49,8 +66,8 @@ router.post('/login', (req, res) =>{
                 res.status(401).send("Invalid password")
                 }
                 else{
-                    let playload = { subject: user._id}
-                    let token = jwt.sign(playload, 'secretKey')
+                    let payload = { subject: user._id}
+                    let token = jwt.sign(payload, 'secretKey')
                     res.status(200).send({token})
                 }
             }
@@ -84,7 +101,7 @@ router.get('/home', (req, res) =>{
     res.json(home)
 })
 
-router.get('/admin', (req, res) =>{
+router.get('/admin', verifyToken, (req, res) =>{
     let admin = [
         {
             "_id": "1",
