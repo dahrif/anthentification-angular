@@ -1,15 +1,8 @@
-.container {
+.card {
     font-family: 'Open Sans', sans-serif;
     background: rgba(3, 3, 55, 0.5);
     width: 40vw;
     height: 30vh;
-    margin: auto;
-    position: absolute;
-    padding: 7vh;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
 }
 .logout{
     background: rgba(235, 30, 54, 1);

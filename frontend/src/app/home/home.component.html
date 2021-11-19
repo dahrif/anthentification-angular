@@ -1,13 +1,35 @@
-    <div class="row">
-        <div class="col-sm-3" *ngFor="let home of home">
-            <h1 class="text-white">{{home.password}}</h1>
+    <nav class="navbar navbar-expand-lg navbar-dark">
+  <div class="container ">
+    <a class="navbar-brand col-6" href="#">Brand</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse " id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0 col-6 ">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link " href="#">Products</a>
+        </li>
+        <li class="nav-item">
+            <a routerLink="/admin" class="nav-link" >Admin</a>
+          </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+    
+    <div class="row p-3">
+        <div class="col-sm-6 col-md-4 col-lg-3" *ngFor="let home of home">
+            <div class="card text-white" style="width: 18rem;">
+                <div class="card-body">
+                  <h5 class="card-title">{{home.password}}</h5>
+                  <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                </div>
+              </div>
         </div>
     </div>
-    <div class="container text-center" >
-
-    
-    <!-- <button *ngIf="this.username" class="logout" (click)="logOut()">Déconnexion</button>
-    <a class="text-white" *ngIf="!this.username" routerLink="/login">Vous n'êtes pas connecté ? Connectez-vous</a> -->
-
-</div>
+ 
     
