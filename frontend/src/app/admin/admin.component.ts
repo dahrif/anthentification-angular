@@ -9,7 +9,8 @@ import { EventService } from '../event.service';
 })
 export class AdminComponent implements OnInit {
 
-  admin = []
+  admin = [];
+  username: any = "";
   
   constructor(private _eventServices : EventService) { }
 
@@ -20,6 +21,10 @@ export class AdminComponent implements OnInit {
       res => this.admin = res,
       err => console.log(err)
     )
+  }
+
+  session(){
+    this.username = sessionStorage.getItem("username")
   }
 
 }
