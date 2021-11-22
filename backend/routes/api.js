@@ -2,6 +2,7 @@ const express = require('express')
 const jwt = require('jsonwebtoken')
 const router = express.Router()
 const User = require('../models/user')
+const Admin = require('../models/admin')
 const mongoose = require('mongoose')
 
 const db = 'mongodb+srv://dahri:dahri2021@cluster0.unjrx.mongodb.net/mydb?retryWrites=true&w=majority'
@@ -16,22 +17,22 @@ mongoose.connect(db, err =>{
     
 })
 
-function verifyToken(req, res, next){
-    if(!req.headers.authorization){
-        return res.status(401).send('Non autorisé')
-    }
-    let token = req.headers.authorization.split(' ')[1]
-    if (token === 'null'){
-        return res.status(401).send('Non autorisé')
-    }
-    let payload = jwt.verify(token, 'secretKey')
-    if(!payload){
-        return res.status(401).send('Non autorisé')
-    }
+// function verifyToken(req, res, next){
+//     if(!req.headers.authorization){
+//         return res.status(401).send('Non autorisé')
+//     }
+//     let token = req.headers.authorization.split(' ')[1]
+//     if (token === 'null'){
+//         return res.status(401).send('Non autorisé')
+//     }
+//     let payload = jwt.verify(token, 'secretKey')
+//     if(!payload){
+//         return res.status(401).send('Non autorisé')
+//     }
 
-    req.userId = payload.subject
-    next()
-}
+//     req.userId = payload.subject
+//     next()
+// }
 
 router.get('/', (req, res) =>{
     res.send('From API route')
@@ -75,8 +76,46 @@ router.post('/login', (req, res) =>{
     })
 })
 
-router.get('/home', (req, res) =>{
-    let home = [
+router.post('/signupadmin', (req, res) =>{
+    let adminData = req.body
+    let admin = new Admin(adminData)
+    admin.save((error, signedupAdmin) =>{
+        if(error){
+            console.log(error)
+        }
+        else{
+            let payload = { subject: signedupAdmin._id}
+            let token = jwt.sign(payload, 'secretKey')
+            res.status(200).send({token})
+        }
+    })
+})
+
+router.post('/loginadmin', (req, res) =>{
+    let adminData = req.body
+
+    Admin.findOne({email: adminData.email}, (error,admin) => {
+        if(error){
+            console.log(error)
+        }else{
+            if (!admin){
+                res.status(401).send("Invalid email")
+            } else{
+                if (admin.password !== adminData.password){
+                res.status(401).send("Invalid password")
+                }
+                else{
+                    let payload = { subject: admin._id}
+                    let token = jwt.sign(payload, 'secretKey')
+                    res.status(200).send({token})
+                }
+            }
+        }
+    })
+})
+
+router.get('/products', (req, res) =>{
+    let products = [
         {
             "_id": "1",
             "name": "product 1",
@@ -98,10 +137,10 @@ router.get('/home', (req, res) =>{
             "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas egestas dui congue, malesuada mi et, cursus dui. Vivamus at purus sit amet sapien eleifend ",
         }
     ]
-    res.json(home)
+    res.json(products)
 })
 
-router.get('/admin', verifyToken, (req, res) =>{
+router.get('/admin', (req, res) =>{
     let admin = [
         {
             "_id": "1",

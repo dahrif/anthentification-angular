@@ -5,15 +5,15 @@ import { HttpClient } from '@angular/common/http';
 
 export class EventService {
 
-  private _homeUrl = "http://localhost:3000/api/home"
+  private _productsUrl = "http://localhost:3000/api/products"
 
   private _adminUrl = "http://localhost:3000/api/admin";
   
 
   constructor(private http : HttpClient) { }
 
-  getHome(){
-    return this.http.get<any>(this._homeUrl)
+  getProducts(){
+    return this.http.get<any>(this._productsUrl)
   }
 
   getAdmin(){

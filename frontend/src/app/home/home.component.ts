@@ -9,17 +9,12 @@ import { EventService } from '../event.service';
 })
 export class HomeComponent implements OnInit {
 
-  home = [];
 
-  constructor(private _eventServices : EventService) { }
+  constructor() { }
 
   
   ngOnInit() {
-    this._eventServices.getHome()
-    .subscribe(
-      res => this.home = res,
-      err => console.log(err)
-    )
+
   }
 
   logOut(){
