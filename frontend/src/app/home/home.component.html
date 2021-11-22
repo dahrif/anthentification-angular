@@ -20,13 +20,13 @@
   </div>
 </nav>
     
-    <div class="row p-3">
+    <div class="row p-3 mt-3">
         <div class="col-sm-6 col-md-4 col-lg-3" *ngFor="let home of home">
-            <div class="card text-white" style="width: 18rem;">
+            <div class="card text-white mt-2" style="width: 18rem;">
                 <div class="card-body">
-                  <h5 class="card-title">{{home.password}}</h5>
+                  <h5 class="card-title">{{home.name}}</h5>
                   <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                  <p class="card-text">{{home.description}}</p>
                 </div>
               </div>
         </div>

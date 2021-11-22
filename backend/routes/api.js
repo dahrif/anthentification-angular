@@ -79,23 +79,23 @@ router.get('/home', (req, res) =>{
     let home = [
         {
             "_id": "1",
-            "email": "timadd@gmail.com",
-            "password": "12356",
+            "name": "product 1",
+            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas egestas dui congue, malesuada mi et, cursus dui. Vivamus at purus sit amet sapien eleifend ",
         },
         {
             "_id": "2",
-            "email": "timadd@gmail.com",
-            "password": "12356",
+            "name": "product 2",
+            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas egestas dui congue, malesuada mi et, cursus dui. Vivamus at purus sit amet sapien eleifend ",
         },
         {
             "_id": "3",
-            "email": "timadd@gmail.com",
-            "password": "12356",
+            "name": "product 3",
+            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas egestas dui congue, malesuada mi et, cursus dui. Vivamus at purus sit amet sapien eleifend ",
         },
         {
             "_id": "4",
-            "email": "timadd@gmail.com",
-            "password": "12356",
+            "name": "product 4",
+            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas egestas dui congue, malesuada mi et, cursus dui. Vivamus at purus sit amet sapien eleifend ",
         }
     ]
     res.json(home)

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HttpErrorResponse } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { EventService } from '../event.service';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-admin',
@@ -12,7 +13,7 @@ export class AdminComponent implements OnInit {
 
   admin = [];
   
-  constructor(private _eventServices : EventService, private _router : Router) { }
+  constructor(private _eventServices : EventService, private _router : Router, private _authService : AuthService) { }
 
   ngOnInit() {
 
