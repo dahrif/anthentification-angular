@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { EventService } from '../event.service';
+import { AuthService } from '../auth.service';
+
 
 @Component({
   selector: 'app-products',
@@ -11,7 +13,7 @@ export class ProductsComponent implements OnInit {
 
   products = [];
 
-  constructor(private _eventServices : EventService) { }
+  constructor(private _eventServices : EventService, private _authService : AuthService) { }
 
   
   ngOnInit() {

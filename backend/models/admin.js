@@ -13,7 +13,6 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 const bcrypt = require('bcrypt');
-const SALT_WORK_FACTOR = 10;
 
 // define User Schema
 const adminSchema = new Schema({
@@ -36,7 +35,7 @@ adminSchema.pre("save", function (next) {
     if (admin._password === undefined) {
         return next();
     }
-    bcrypt.genSalt(SALT_WORK_FACTOR, function (err, salt) {
+    bcrypt.genSalt( function (err, salt) {
         if (err) console.log(err);
         // hash the password using our new salt
         bcrypt.hash(admin._password, salt, function (err, hash) {
@@ -47,6 +46,15 @@ adminSchema.pre("save", function (next) {
     });
 });
 
+adminSchema.methods = {
+    comparePassword: function(candidatePassword, cb) {
+        bcrypt.compare(candidatePassword, this.password, function(err, isMatch) {
+            if (err) return cb(err);
+            cb(null, isMatch);
+        });
+    }
+}
 
-module.exports = mongoose.model('admin', adminSchema, 'admins')
+
+module.exports = mongoose.model('admins', adminSchema)
 

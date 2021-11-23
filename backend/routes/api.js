@@ -65,7 +65,7 @@ router.post('/login', (req, res) =>{
             if (!user){
                 res.status(401).send("Invalid email")
             } else{
-                if (user.password !== userData.password){
+                if (user._password !== userData._password){
                 res.status(401).send("Invalid password")
                 }
                 else{
@@ -103,7 +103,7 @@ router.post('/loginadmin', (req, res) =>{
             if (!admin){
                 res.status(401).send("Invalid email")
             } else{
-                if (admin.password !== adminData.password){
+                if (admin._password !== adminData._password){
                 res.status(401).send("Invalid password")
                 }
                 else{
