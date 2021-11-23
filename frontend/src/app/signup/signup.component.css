@@ -1,16 +1,9 @@
-
-
-#container {
+.contain {
     font-family: 'M PLUS 1', sans-serif ;
     background: rgba(3, 3, 55, 0.5);
     width: 40vw;
     height: 85vh;
     margin: auto;
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
 }
 
 header {
@@ -71,13 +64,13 @@ a{
 
 /*Media queries */
 @media (maX-width: 800px) {
-    #container {
+    .contain {
         width: 80vw;
         margin-bottom: 10%;
     }
 }
     @media (min-width: 569px) and (max-width: 768px) {
-        #container {
+        .contain {
             margin-top: 5%;
             margin-bottom: 5%;
         }

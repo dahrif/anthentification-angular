@@ -5,6 +5,8 @@ const User = require('../models/user')
 const Admin = require('../models/admin')
 const mongoose = require('mongoose')
 
+
+
 const db = 'mongodb+srv://dahri:dahri2021@cluster0.unjrx.mongodb.net/mydb?retryWrites=true&w=majority'
 
 mongoose.connect(db, err =>{

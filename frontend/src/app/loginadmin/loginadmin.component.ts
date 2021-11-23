@@ -19,7 +19,7 @@ export class LoginadminComponent implements OnInit {
   ngOnInit() {
   }
 
-  login(){
+  loginadmin(){
     this._auth.loginAdmin(this.loginAdminData)
     .subscribe(
       res =>
