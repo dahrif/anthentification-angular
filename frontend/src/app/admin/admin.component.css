@@ -323,7 +323,8 @@
   
   .logout{
     font-family: 'M PLUS 1', sans-serif;
-    background: rgba(235, 30, 54, 1);
+    background: #b52b65;
+    ;
     border: 0;
     display: block;
     margin: auto;

@@ -1,0 +1,23 @@
+<app-navbar></app-navbar>
+
+<div id="container">
+  
+    <header>Login as admin</header>
+    <form>
+       <fieldset>
+          <input [(ngModel)]="loginAdminData.email" type="email" name="email" placeholder="Email" ><br/>
+          <!-- <span class="text-danger" *ngIf="loginForm.controls['email'].touched && loginForm.hasError('required', 'email')">*Veuillez entrer votre email</span> <br/> -->
+          
+          <input [(ngModel)]="loginAdminData.password" type="password" name="password" placeholder="Mot de passe" ><br/>
+          <!-- <span class="text-danger" *ngIf="loginForm.controls['password'].touched && loginForm.hasError('required', 'password')">**Veuillez entrer votre mot de passe</span><br/> -->
+          
+          <label for="submit"></label>
+          <input type="submit" (click)="loginadmin()" name="submit" class="submit" value="Connexion">
+          
+          <a routerLink="/signupadmin">Vous n'avez pas de compte? Inscrivez-vous</a>
+       </fieldset>
+       
+    </form>
+    
+ </div>
+ 
