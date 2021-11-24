@@ -27,7 +27,11 @@ export class LoginadminComponent implements OnInit {
         localStorage.setItem('token', res.token)
         this._router.navigate(['/admin'])
       },
-      err => console.log(err)
+      err => {
+        alert("Erreur")
+        console.log(err)
+      }
+      
     )
   }
 
