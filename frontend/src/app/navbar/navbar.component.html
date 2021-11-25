@@ -13,9 +13,10 @@
             <a routerLink="/products" class="nav-link">Products</a>
           </li>
           <li class="nav-item">
-              <a routerLink="/admin" class="nav-link" >Admin</a>
+              <a routerLink="/admin" class="nav-link" >My account</a>
             </li>
         </ul>
+        <button class="btn btn-danger" *ngIf=[!!_authService.loggedIn()] (click)="_authService.logout()">Log Out</button>
       </div>
     </div>
   </nav>

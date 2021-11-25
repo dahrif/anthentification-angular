@@ -2,7 +2,6 @@ const express = require('express')
 const jwt = require('jsonwebtoken')
 const router = express.Router()
 const User = require('../models/user')
-const Admin = require('../models/admin')
 const mongoose = require('mongoose')
 
 
@@ -78,43 +77,6 @@ router.post('/login', (req, res) =>{
     })
 })
 
-router.post('/signupadmin', (req, res) =>{
-    let adminData = req.body
-    let admin = new Admin(adminData)
-    admin.save((error, signedupAdmin) =>{
-        if(error){
-            console.log(error)
-        }
-        else{
-            let payload = { subject: signedupAdmin._id}
-            let token = jwt.sign(payload, 'secretKey')
-            res.status(200).send({token})
-        }
-    })
-})
-
-router.post('/loginadmin', (req, res) =>{
-    let adminData = req.body
-
-    Admin.findOne({email: adminData.email}, (error,admin) => {
-        if(error){
-            console.log(error)
-        }else{
-            if (!admin){
-                res.status(401).send("Invalid email")
-            } else{
-                if (admin._password !== adminData._password){
-                res.status(401).send("Invalid password")
-                }
-                else{
-                    let payload = { subject: admin._id}
-                    let token = jwt.sign(payload, 'secretKey')
-                    res.status(200).send({token})
-                }
-            }
-        }
-    })
-})
 
 router.get('/products', (req, res) =>{
     let products = [

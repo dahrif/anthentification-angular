@@ -14,8 +14,6 @@ import { AuthService } from './auth.service';
 import { EventService } from './event.service';
 import { AuthGuard } from './auth.guard';
 import { TokenInetrceptorService } from './token-inetrceptor.service';
-import { LoginadminComponent } from './loginadmin/loginadmin.component';
-import { SignupadminComponent } from './signupadmin/signupadmin.component';
 import { NavbarComponent } from './navbar/navbar.component';
 
 
@@ -28,8 +26,6 @@ import { NavbarComponent } from './navbar/navbar.component';
     HomeComponent,
     AdminComponent,
     ProductsComponent,
-    LoginadminComponent,
-    SignupadminComponent,
     NavbarComponent
   ],
   imports: [

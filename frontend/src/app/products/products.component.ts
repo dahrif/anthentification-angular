@@ -24,8 +24,4 @@ export class ProductsComponent implements OnInit {
     )
   }
 
-  logOut(){
-    
-  }
-
 }

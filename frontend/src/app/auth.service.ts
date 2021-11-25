@@ -10,9 +10,6 @@ private _signupUrl = "http://localhost:3000/api/signup";
 
 private _loginUrl = "http://localhost:3000/api/login";
 
-private _signupAdminUrl = "http://localhost:3000/api/signupadmin";
-
-private _loginAdminUrl = "http://localhost:3000/api/loginadmin";
 
 
 
@@ -26,21 +23,9 @@ private _loginAdminUrl = "http://localhost:3000/api/loginadmin";
     return this.http.post<any>(this._loginUrl, user)
    }
 
-   signUpAdmin(admin){
-    return this.http.post<any>(this._signupAdminUrl, admin)
-   }
- 
-   loginAdmin(admin){
-     return this.http.post<any>(this._loginAdminUrl, admin)
-    }
-
    loggedIn(){
      return !!localStorage.getItem('token')
    }
-
-   loggedInAdmin(){
-    return !!localStorage.getItem('token')
-  }
 
    getToken(){
      return localStorage.getItem('token')
