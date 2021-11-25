@@ -16,7 +16,6 @@
               <a routerLink="/admin" class="nav-link" >My account</a>
             </li>
         </ul>
-        <button class="btn btn-danger" *ngIf=[!!_authService.loggedIn()] (click)="_authService.logout()">Log Out</button>
       </div>
     </div>
   </nav>

@@ -37,4 +37,10 @@ private _loginUrl = "http://localhost:3000/api/login";
 
    }
 
+   validateLogin(user){
+    return this.http.post('/api/user/login',{
+     username : user.username,
+     password : user.password
+    })
+   }
 }

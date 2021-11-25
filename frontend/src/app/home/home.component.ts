@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { EventService } from '../event.service';
+import { AuthService } from '../auth.service';
+import { AuthGuard } from '../auth.guard';
 
 @Component({
   selector: 'app-home',
@@ -10,16 +12,14 @@ import { EventService } from '../event.service';
 export class HomeComponent implements OnInit {
 
 
-  constructor() { }
+  constructor( private _authService : AuthService, private _authguard : AuthGuard ) { }
 
   
   ngOnInit() {
 
-  }
+    !!this._authService.loggedIn()
 
-  logOut(){
-    
-  }
+   }
 
 
 }
