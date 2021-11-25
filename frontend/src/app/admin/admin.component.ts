@@ -19,7 +19,10 @@ export class AdminComponent implements OnInit {
 
     this._eventServices.getAdmin()
     .subscribe(
-      res => this.admin = res,
+      res => {
+        localStorage.getItem('username');
+        this.admin = res},
+
       err => console.log(err)
       //  {
       //   if(err instanceof HttpErrorResponse){

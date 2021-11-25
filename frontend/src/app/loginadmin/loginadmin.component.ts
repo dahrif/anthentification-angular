@@ -24,11 +24,11 @@ export class LoginadminComponent implements OnInit {
     .subscribe(
       res =>
        {console.log(res)
+        localStorage.setItem('admin', JSON.stringify(this.loginAdminData));
         localStorage.setItem('token', res.token)
         this._router.navigate(['/admin'])
       },
       err => {
-        alert("Erreur")
         console.log(err)
       }
       
