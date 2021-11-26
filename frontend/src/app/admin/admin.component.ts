@@ -21,7 +21,8 @@ export class AdminComponent implements OnInit {
     .subscribe(
       res => {
         localStorage.getItem('username');
-        this.admin = res},
+        this.admin = res
+      },
 
       err => console.log(err)
       //  {
