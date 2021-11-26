@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { JwtService } from './jwt.service';
 
 @Injectable()
 
@@ -13,7 +14,7 @@ private _loginUrl = "http://localhost:3000/api/login";
 
 
 
-  constructor(private http: HttpClient, private _router : Router){}
+  constructor(private http: HttpClient, private _router : Router, private jwtService:JwtService){}
 
   signUp(user){
    return this.http.post<any>(this._signupUrl, user)
@@ -28,7 +29,8 @@ private _loginUrl = "http://localhost:3000/api/login";
    }
 
    getToken(){
-     return localStorage.getItem('token')
+    // let token = this.jwtService.DecodeToken('token')
+     return localStorage.getItem("token")
    }
 
    logout(){
@@ -44,3 +46,4 @@ private _loginUrl = "http://localhost:3000/api/login";
   //   })
   //  }
 }
+

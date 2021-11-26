@@ -1,6 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
@@ -15,6 +14,7 @@ import { EventService } from './event.service';
 import { AuthGuard } from './auth.guard';
 import { TokenInetrceptorService } from './token-inetrceptor.service';
 import { NavbarComponent } from './navbar/navbar.component';
+import { JwtService } from './jwt.service';
 
 
 
@@ -37,7 +37,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 
 
   ],
-  providers: [AuthService, EventService, AuthGuard, {
+  providers: [AuthService, EventService, AuthGuard, JwtService, {
     provide : HTTP_INTERCEPTORS,
     useClass : TokenInetrceptorService,
     multi : true
