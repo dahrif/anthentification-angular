@@ -1,6 +1,5 @@
 const express = require('express');
 const cors = require('cors');
-
 const app = express();
 
 var corsOptions = {
@@ -17,7 +16,6 @@ const dbConfig = require('./app/config/db.config');
 const Role = db.role;
 
 db.mongoose
-  //.connect(`mongodb://${dbConfig.HOST}:${dbConfig.PORT}/${dbConfig.DB}`, {
   .connect(dbConfig.HOST, {
     useNewUrlParser: true,
     useUnifiedTopology: true
@@ -45,14 +43,6 @@ function initial() {
         console.log("added 'user' to toles collection");
       });
 
-      // new Role({
-      //   name: "moderator"
-      // }).save(err => {
-      //   if (err) {
-      //     console.log("error", err);
-      //   }
-      //   console.log("added 'moderator' to roles collection");
-      // });
 
       new Role({
         name: "admin"
