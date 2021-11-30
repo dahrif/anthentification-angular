@@ -1,28 +1,24 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
-import { LoginComponent } from './login/login.component';
-import { SignupComponent } from './signup/signup.component';
-import { AdminComponent } from './admin/admin.component';
-import { HomeComponent } from './home/home.component';
-import { ProductsComponent } from './products/products.component';
-
-import { AuthGuard } from './auth.guard';
+import { RouterModule, Routes } from '@angular/router';
+import { AdminComponent } from './_components/admin/admin.component';
+import { UserComponent } from './_components/user/user.component';
+import { HomeComponent } from './_components/home/home.component';
+import { LoginComponent } from './_components/login/login.component';
+import { ProfileComponent } from './_components/profile/profile.component';
+import { RegisterComponent } from './_components/register/register.component';
 
 const routes: Routes = [
-  {path:"", redirectTo: "home" , pathMatch: "full"},
-  {path:"login", component:LoginComponent},
-  {path:"signup", component:SignupComponent},
-  {path: "products", component:ProductsComponent},
-  {path:"admin", component:AdminComponent
-  ,  canActivate: [AuthGuard]
-},
-  
-  {path:"home", component:HomeComponent}
+  { path: 'home', component: HomeComponent},
+  { path: 'login', component: LoginComponent},
+  { path: 'register', component: RegisterComponent},
+  { path: 'profile', component: ProfileComponent},
+  { path: 'user', component: UserComponent},
+  { path: 'admin', component: AdminComponent},
+  { path: '', redirectTo: 'home', pathMatch: 'full' }
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
-
 })
 export class AppRoutingModule { }

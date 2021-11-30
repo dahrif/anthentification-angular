@@ -1,47 +1,34 @@
-import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
-import { LoginComponent } from './login/login.component';
-import { SignupComponent } from './signup/signup.component';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule,HTTP_INTERCEPTORS } from '@angular/common/http';
-import { HomeComponent } from './home/home.component';
-import { ProductsComponent } from './products/products.component';
-import { AdminComponent } from './admin/admin.component';
-import { AuthService } from './auth.service';
-import { EventService } from './event.service';
-import { AuthGuard } from './auth.guard';
-import { TokenInetrceptorService } from './token-inetrceptor.service';
-import { NavbarComponent } from './navbar/navbar.component';
-import { JwtService } from './jwt.service';
-
-
+import { LoginComponent } from './_components/login/login.component';
+import { RegisterComponent } from './_components/register/register.component';
+import { HomeComponent } from './_components/home/home.component';
+import { ProfileComponent } from './_components/profile/profile.component';
+import { AdminComponent } from './_components/admin/admin.component';
+import { UserComponent } from './_components/user/user.component';
+import { AuthInterceptorProviders } from './_helpers/auth.interceptor';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    SignupComponent,
+    RegisterComponent,
     HomeComponent,
+    ProfileComponent,
     AdminComponent,
-    ProductsComponent,
-    NavbarComponent
+    UserComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule,
     HttpClientModule
-
-
   ],
-  providers: [AuthService, EventService, AuthGuard, JwtService, {
-    provide : HTTP_INTERCEPTORS,
-    useClass : TokenInetrceptorService,
-    multi : true
-  }],
+  providers: [ AuthInterceptorProviders ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
