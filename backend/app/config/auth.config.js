@@ -1,3 +1,3 @@
 module.exports = {
-  secret: "madmenyo-secret-key-string"
+  secret: "dahri-secret-key"
 };
